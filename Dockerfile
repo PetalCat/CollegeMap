@@ -9,7 +9,7 @@ COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
 COPY . .
-RUN pnpm build
+RUN DATABASE_URL=file:placeholder.db pnpm build
 
 # Stage 2: Runtime
 FROM node:22-alpine
